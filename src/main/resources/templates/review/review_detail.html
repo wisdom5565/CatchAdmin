@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체 리뷰</title>
+    <!--css 및 라이브러리 링크 시작-->
+    <div th:replace="fragment/link :: link"/>
+    <!--css 및 라이브러리 링크 끝-->
+</head>
+<style>
+    .value {
+        width: 400px;
+    }
+    <!--        /*ㅎㅇㅎㅇ*/-->
+    p {
+        padding: 6px;
+    }
+</style>
+<body>
+<!--header 시작-->
+<div th:replace="fragment/header :: header"/>
+<!--프로필 시작-->
+<div th:replace="fragment/profile :: profile"/>
+<!--프로필 끝-->
+<!--header 끝-->
+
+<div class="wrapper">
+    <!-- 사이드바 시작 -->
+    <div th:replace="fragment/aside_nav :: aside_nav"/>
+    <!--사이드바 끝-->
+
+    <section class="content">
+        <!-- 컨텐츠 헤더 -->
+        <header class="main-header clearfix">
+            <h1 class="main-header__title">
+                <i class="icon pe-7s-home"></i>
+                리뷰 상세 <small>조회 및 관리</small>
+            </h1>
+            <div class="main-header__date">
+                <i class="icon pe-7s-date"></i>
+                <span class="date"></span>
+            </div>
+        </header> <!--헤더 끝-->
+        <div class="row">
+
+            <div class="col-md-12">
+                <article class="widget shadow">
+                    <div class="widget__content">
+                        <p>식당 : <input type="text" class="input-text value" placeholder="" value="스시소요"
+                                       readonly/></p>
+                        <p>내용 : <input type="text" class="input-text value" placeholder=""
+                                       value="생선찜이 맛있어요..! 나중에 또 방문할게요" readonly/></p>
+                        <p>닉네임 : <input type="text" class="input-text value" placeholder="" value="건강한 마스터1234"
+                                        readonly/></p>
+                        <p>좋아요 : <input type="text" class="input-text" value="0" readonly></p>
+                        <p>등록일 : 2022.12.15</p>
+                        <div>
+                            <!-- 리뷰 별점 -->
+                            <div class="__review-meta __review-meta--with-rating" style="width: 100%; margin-top: 5px;">
+                                <div class="__d-flex __v-center" style="justify-content: space-between;">
+                                    <a href="#" class="__rating __active">4.8</a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <button class="btn btn-light pull-right" type="button" onclick="history.back()">뒤로가기</button>
+                        <div class="clearfix"></div>
+                    </div>
+
+
+                </article>
+            </div>
+        </div> <!--row-->
+    </section>
+    <!--    footer 시작-->
+    <div th:replace="fragment/footer :: footer"/>
+    <!--    footer 끝-->
+
+</div> <!-- /wrapper -->
+
+<!--js 연결 시작-->
+<div th:replace="fragment/js :: js"/>
+<!--js 연결 끝-->
+</body>
+</html>
