@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository
 public interface PointRepository extends JpaRepository<Point,Long> {
-    Optional<Point> findByPoNick(String poNick);
 }

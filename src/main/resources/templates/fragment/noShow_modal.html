@@ -7,25 +7,25 @@
       </div>
       <div class="modal__main">
         <p>
-          회원 번호 : [[${user.prIdx}]]
+          회원 번호 : <span id="prIdx">[[${profile.prIdx}]]</span>
         </p>
         <p>
-          회원 이름 :  [[${user.prName}]]
+          회원 이름 :  [[${profile.prName}]]
         </p>
         <p>
-          닉네임 : [[${user.prNick}]]
+          닉네임 : <span id="prNick">[[${profile.prNick}]]</span>
         </p>
         <p>
-          회원 핸드폰 번호 : [[${user.prHp}]]
+          회원 핸드폰 번호 : [[${profile.prHp}]]
         </p>
         <p>
-          보내는 관리자 :[[${session.name}]]
+          보내는 관리자 : 캐치테이블
         </p>
         <p>
-          <input type="text" class="input-text message" name="message" placeholder="회원에게 보낼 메세지를 입력하세요.">
+          <input type="text" class="input-text message" id="noShow-msg" placeholder="회원에게 보낼 메세지를 입력하세요.">
         </p>
         <div>
-          <button class="btn btn-skyblue" type="submit">보내기</button><button class="btn btn-light close_btn" type="button">닫기</button>
+          <button class="btn btn-skyblue" onclick="sendNoshow()">보내기</button><button class="btn btn-light close_btn" type="button">닫기</button>
         </div>
       </div>
     </div>

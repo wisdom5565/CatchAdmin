@@ -22,5 +22,6 @@ public class TalkAdmin extends BaseEntity implements Auditable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taaIdx;
     private String taaNick;
+    private String taaResaBisName;
     private String taaContent;
 }

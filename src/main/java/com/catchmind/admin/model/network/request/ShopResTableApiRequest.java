@@ -1,16 +1,14 @@
-package com.catchmind.admin.model.network.response;
+package com.catchmind.admin.model.network.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
-public class PointResponse {
-    private String poList;
-    private int poTot;
-
+public class ShopResTableApiRequest {
+    private String resaBisName;
 }

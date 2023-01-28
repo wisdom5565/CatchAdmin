@@ -19,11 +19,10 @@ public class PointApiController extends CrudController<PointApiRequest, PointApi
 
     private final PointApiLogicService pointApiLogicService;
 
-
-    @Override
-    @PostMapping("")
-    public Header<PointApiResponse> create(@RequestBody Header<PointApiRequest> request) {
-        return pointApiLogicService.create(request);
-    }
+//    @Override
+//    @PostMapping("")
+//    public Header<PointApiResponse> create(@RequestBody Header<PointApiRequest> request) {
+//        return pointApiLogicService.create(request);
+//    }
 
 }

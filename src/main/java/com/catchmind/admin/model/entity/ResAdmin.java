@@ -16,7 +16,6 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @EntityListeners(AuditingEntityListener.class)
 public class ResAdmin extends BaseEntity implements Auditable {
-
     @Id
     private String resaBisName;
     private String resaUserid;

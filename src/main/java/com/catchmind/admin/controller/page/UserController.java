@@ -40,8 +40,8 @@ public class UserController {
     @GetMapping("/detail/{prIdx}")
     public ModelAndView userDetail(@PathVariable Long prIdx) {
         ModelAndView userDetail = new ModelAndView("user/user_detail");
-        Header<ProfileResponse> user = profileLogicService.read(prIdx);
-        userDetail.addObject("user",user.getData());
+        Header<ProfileResponse> profile = profileLogicService.read(prIdx);
+        userDetail.addObject("profile",profile.getData());
         return userDetail;
     }
 }
