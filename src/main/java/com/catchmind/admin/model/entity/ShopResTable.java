@@ -1,6 +1,5 @@
 package com.catchmind.admin.model.entity;
 
-import com.catchmind.admin.model.config.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +17,8 @@ public class ShopResTable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long shopResId;
     private String shopResStatus;
-    private String shopResDate;
+    private String shopResMonth;
+    private String shopResDay;
     private String shopResTime;
     @ManyToOne
     @JoinColumn(name="resaBisName")

@@ -1,5 +1,6 @@
 package com.catchmind.admin.model.network.response;
 
+import com.catchmind.admin.model.entity.Profile;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,12 +15,13 @@ import java.time.LocalDateTime;
 public class ReviewApiResponse {
     private Long revIdx;
     private String revNick;
-    private String revPhoto;
-    private Long revLike;
+    private int revLike;
     private String revContent;
-    private Double revScore;
+    private double revScore;
+    private Long revComm;
     private String resaBisName;
     private LocalDateTime regDate;
     private LocalDateTime updateDate;
+    private Profile prIdx;
 
 }

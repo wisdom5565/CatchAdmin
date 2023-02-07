@@ -24,8 +24,6 @@ public class NoticeApiLogicService extends BaseService<NoticeApiRequest, NoticeA
         NoticeApiResponse noticeApiResponse = NoticeApiResponse.builder()
                 .noIdx(users.getNoIdx())
                 .noTitle(users.getNoTitle())
-                .adName(users.getAdName())
-                .adUserid(users.getAdUserid())
                 .noContent(users.getNoContent())
                 .build();
         return noticeApiResponse;
@@ -37,7 +35,6 @@ public class NoticeApiLogicService extends BaseService<NoticeApiRequest, NoticeA
         NoticeApiRequest noticeApiRequest = request.getData();
 
         Notice notice = Notice.builder().noTitle(noticeApiRequest.getNoTitle())
-                .adName(noticeApiRequest.getAdName())
                 .noContent(noticeApiRequest.getNoContent())
                 .build();
         Notice newNotice = baseRepository.save(notice);
@@ -50,8 +47,6 @@ public class NoticeApiLogicService extends BaseService<NoticeApiRequest, NoticeA
     public Header<NoticeApiResponse> update(Header<NoticeApiRequest> request) {
         NoticeApiRequest noticeApiRequest = request.getData();
         Optional<Notice> notices = noticeRepository.findByNoIdx(noticeApiRequest.getNoIdx());
-//        System.out.println("idx는" + noticeApiRequest.getNoIdx());
-//        System.out.println("notices는" + notices);
         return notices.map(
                         user -> {
                             user.setNoTitle(noticeApiRequest.getNoTitle());

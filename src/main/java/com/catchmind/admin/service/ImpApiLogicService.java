@@ -12,7 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,7 +25,7 @@ public class ImpApiLogicService extends BaseService<ImpApiRequest, ImpApiRespons
                 .impIdx(imp.getImpIdx())
                 .impTitle(imp.getImpTitle())
                 .impContent(imp.getImpContent())
-                .impNick(imp.getImpNick())
+                .prIdx(imp.getPrIdx())
                 .impAnswer(imp.getImpAnswer())
                 .build();
         return impApiResponse;
@@ -59,6 +58,7 @@ public class ImpApiLogicService extends BaseService<ImpApiRequest, ImpApiRespons
         return imps.map(
                         user -> {
                             user.setImpAnswer(impApiRequest.getImpAnswer());
+                            user.setImpStatus(true);
                             return user;
                         }).map(user -> baseRepository.save(user))
                 .map(user -> response(user))

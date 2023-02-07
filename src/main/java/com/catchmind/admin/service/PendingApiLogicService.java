@@ -1,10 +1,8 @@
 package com.catchmind.admin.service;
 
-import com.catchmind.admin.model.entity.Notice;
 import com.catchmind.admin.model.entity.Pending;
 import com.catchmind.admin.model.network.Header;
 import com.catchmind.admin.model.network.request.PendingApiRequest;
-import com.catchmind.admin.model.network.response.NoticeApiResponse;
 import com.catchmind.admin.model.network.response.PendingApiResponse;
 import com.catchmind.admin.repository.PendingRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -68,5 +65,12 @@ public class PendingApiLogicService extends BaseService<PendingApiRequest, Pendi
 
     public Page<Pending> ownerlist(Pageable pageable) {
         return pendingRepository.findAll(pageable);
+    }
+    public Header deletepend(String penBisname){
+        Optional<Pending> pendingApiResponse = pendingRepository.findByPenBisName(penBisname);
+        return  pendingApiResponse.map(user->{
+            pendingRepository.delete(user);
+            return Header.ok();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 }

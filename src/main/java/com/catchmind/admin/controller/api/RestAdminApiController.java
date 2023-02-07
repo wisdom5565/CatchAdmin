@@ -3,9 +3,18 @@ package com.catchmind.admin.controller.api;
 import com.catchmind.admin.controller.CrudController;
 import com.catchmind.admin.model.entity.ResAdmin;
 import com.catchmind.admin.model.network.Header;
-import com.catchmind.admin.model.network.request.*;
-import com.catchmind.admin.model.network.response.*;
-import com.catchmind.admin.service.*;
+import com.catchmind.admin.model.network.request.BisDetailApiRequest;
+import com.catchmind.admin.model.network.request.BisInfoApiRequest;
+import com.catchmind.admin.model.network.request.ResAdminApiRequest;
+import com.catchmind.admin.model.network.request.TotalTableApiRequest;
+import com.catchmind.admin.model.network.response.BisDetailApiResponse;
+import com.catchmind.admin.model.network.response.BisInfoApiResponse;
+import com.catchmind.admin.model.network.response.ResAdminApiResponse;
+import com.catchmind.admin.model.network.response.TotalTableApiResponse;
+import com.catchmind.admin.service.BisDetailLogicService;
+import com.catchmind.admin.service.BisInfoApiLogicService;
+import com.catchmind.admin.service.RestAdminApiLogicService;
+import com.catchmind.admin.service.TotalTableLogicService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +26,8 @@ public class RestAdminApiController extends CrudController<ResAdminApiRequest, R
     private final BisInfoApiLogicService bisInfoApiLogicService;
     private final BisDetailLogicService bisDetailLogicService;
     private final TotalTableLogicService totalTableLogicService;
-    private final ShopResTableLogicService shopResTableLogicService;
+    private final PhotoApiLogicService photoApiLogicService;
+    private final FacilityApiLogicService facilityApiLogicService;
 
     @PostMapping("")
     public Header<ResAdminApiResponse> create(@RequestBody Header<ResAdminApiRequest> request) {
@@ -39,15 +49,18 @@ public class RestAdminApiController extends CrudController<ResAdminApiRequest, R
         return bisDetailLogicService.create(request);
     }
 
-    @PostMapping("/res")
-    public Header<ShopResTableApiResponse> res(@RequestBody Header<ShopResTableApiRequest> request) {
-        return shopResTableLogicService.create(request);
-
-    }
     @PostMapping("/total")
     public Header<TotalTableApiResponse> total(@RequestBody Header<TotalTableApiRequest> request) {
         return totalTableLogicService.create(request);
     }
+    @PostMapping("/fac")
+    public Header<FacilityApiResponse> fac(@RequestBody Header<FacilityApiRequest> request) {
+        return facilityApiLogicService.create(request);
+    }
 
+    @PostMapping("/photo")
+    public Header<PhotoApiResponse> photo(@RequestBody Header<PhotoApiRequest> request) {
+        return photoApiLogicService.create(request);
+    }
 
 }

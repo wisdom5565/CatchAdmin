@@ -22,8 +22,8 @@ public class Improvement extends BaseEntityUpdate implements AuditableUpdate {
     private Long impIdx;
     private String impTitle;
     private String impContent;
-    private String impNick;
+    private Long prIdx;
     private String impAnswer;
-    private String impStatus;
+    private boolean impStatus;
 
 }

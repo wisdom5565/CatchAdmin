@@ -1,5 +1,6 @@
 package com.catchmind.admin.service;
 
+import com.catchmind.admin.model.entity.Profile;
 import com.catchmind.admin.model.entity.Review;
 import com.catchmind.admin.model.network.Header;
 import com.catchmind.admin.model.network.request.ReviewApiRequest;
@@ -10,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class ReviewLogicService extends BaseService<ReviewApiRequest, ReviewApiResponse, Review> {
@@ -19,13 +22,13 @@ public class ReviewLogicService extends BaseService<ReviewApiRequest, ReviewApiR
     private ReviewApiResponse response(Review users){
         ReviewApiResponse reviewApiResponse = ReviewApiResponse.builder()
                 .revIdx(users.getRevIdx())
-                .revNick(users.getRevNick())
                 .revLike(users.getRevLike())
                 .revContent(users.getRevContent())
                 .revScore(users.getRevScore())
                 .resaBisName(users.getResAdmin().getResaBisName())
                 .regDate(users.getRegDate())
                 .updateDate(users.getUpdateDate())
+                .prIdx(Profile.builder().prIdx(users.getResIdx()).build())
                 .build();
         return reviewApiResponse;
     }
@@ -53,5 +56,12 @@ public class ReviewLogicService extends BaseService<ReviewApiRequest, ReviewApiR
 
     public Page<ReviewApiResponse> reviewList(Pageable pageable) {
         return reviewRepository.findAll(pageable).map(review -> response(review));
+    }
+    public Header deleteok(Long idx){
+        Optional<Review> review = reviewRepository.findByRevIdx(idx);
+        return review.map(user->{
+            reviewRepository.delete(user);
+            return Header.ok();
+        }).orElseGet(() -> Header.ERROR("데이터 없음"));
     }
 }

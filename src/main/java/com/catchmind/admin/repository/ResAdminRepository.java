@@ -1,6 +1,5 @@
 package com.catchmind.admin.repository;
 
-import com.catchmind.admin.model.entity.Pending;
 import com.catchmind.admin.model.entity.ResAdmin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,4 +13,8 @@ public interface ResAdminRepository extends JpaRepository<ResAdmin, String> {
     Optional<ResAdmin> findByResaUserid(String resaUserid);
 
     List<ResAdmin> findByResaBisNameContaining(String resaBisName);
+
+    Optional<ResAdmin> findByResaBisName(String resaBisName);
+
+    Integer countBy();
 }

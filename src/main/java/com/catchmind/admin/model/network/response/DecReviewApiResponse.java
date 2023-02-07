@@ -1,9 +1,11 @@
 package com.catchmind.admin.model.network.response;
 
+import com.catchmind.admin.model.entity.Profile;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -19,4 +21,5 @@ public class DecReviewApiResponse {
     private String revContent;
     private String resaBisName;
     private LocalDateTime regDate;
+    private Profile prIdx;
 }
