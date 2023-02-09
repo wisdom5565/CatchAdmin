@@ -6,6 +6,7 @@ import com.catchmind.admin.model.network.Header;
 import com.catchmind.admin.model.network.request.DecReviewApiRequest;
 import com.catchmind.admin.model.network.response.DecReviewApiResponse;
 import com.catchmind.admin.repository.DecReviewRepository;
+import com.catchmind.admin.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,7 @@ public class DecReviewLogicService extends BaseService<DecReviewApiRequest, DecR
         DecReviewApiResponse reviewApiResponse = DecReviewApiResponse.builder()
                 .derIdx(declareReview.getDerIdx())
                 .revIdx(declareReview.getReview().getRevIdx())
+                .resIdx(declareReview.getReview().getResIdx())
                 .derNick(declareReview.getDerNick())
                 .derContent(declareReview.getDerContent())
                 .revContent(declareReview.getReview().getRevContent())

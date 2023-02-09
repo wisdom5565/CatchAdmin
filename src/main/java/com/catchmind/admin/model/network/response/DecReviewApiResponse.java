@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 public class DecReviewApiResponse {
     private Long derIdx;
     private Long revIdx;
+    private Long resIdx;
     private String derNick;
     private String prNick;
     private String derContent;
